@@ -1,0 +1,149 @@
+[ 2024-06-25 00:32:54,555 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\utils\requirements_utils.py:20: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources  # noqa: TID251
+
+[ 2024-06-25 00:32:54,809 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\pkg_resources\__init__.py:2976: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+
+[ 2024-06-25 00:32:54,839 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\pkg_resources\__init__.py:2976: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('zope')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+
+[ 2024-06-25 00:32:55,811 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:61: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("togetherai_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,816 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:75: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("cohere_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,818 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:83: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("ai21labs_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,820 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:92: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("mosaicml_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,821 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:122: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("openai_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,841 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:179: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("anthropic_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,844 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:187: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("palm_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,857 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:227: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("mistral_api_key", pre=True)
+
+[ 2024-06-25 00:32:55,861 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:308: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("provider", pre=True)
+
+[ 2024-06-25 00:32:55,862 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:329: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("config", pre=True)
+
+[ 2024-06-25 00:32:55,880 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:369: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("name")
+
+[ 2024-06-25 00:32:55,880 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:379: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("model", pre=True)
+
+[ 2024-06-25 00:32:55,881 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:390: PydanticDeprecatedSince20: Pydantic V1 style `@root_validator` validators are deprecated. You should migrate to Pydantic V2 style `@model_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @root_validator(skip_on_failure=True)
+
+[ 2024-06-25 00:32:55,881 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:412: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("route_type", pre=True)
+
+[ 2024-06-25 00:32:55,881 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\mlflow\gateway\config.py:418: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  @validator("limit", pre=True)
+
+[ 2024-06-25 00:32:55,889 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\pydantic\_internal\_config.py:284: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+  warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+[ 2024-06-25 00:32:58,207 ] 19 root - INFO - Initiated Data Ingestion
+[ 2024-06-25 00:33:13,187 ] 27 root - INFO - Read the dataset as dataframe
+[ 2024-06-25 00:33:15,932 ] 32 root - INFO - Data Ingestion completed
+[ 2024-06-25 00:33:16,094 ] 29 root - INFO - DATA VALIDATION STARTED
+[ 2024-06-25 00:33:16,915 ] 35 root - INFO - expectation suite started to validate
+[ 2024-06-25 00:33:16,928 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\great_expectations\data_context\data_context\base_data_context.py:158: DeprecationWarning: DataContext and BaseDataContext are deprecated as of v0.17.10 and will be removed in v0.20. Please use gx.get_context instead.
+  warnings.warn(
+
+[ 2024-06-25 00:33:16,955 ] 222 great_expectations.data_context.data_context.file_data_context - INFO - FileDataContext loading fluent config
+[ 2024-06-25 00:33:16,965 ] 187 great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
+[]
+[ 2024-06-25 00:33:17,012 ] 538 great_expectations.data_asset.data_asset - INFO - 	1 expectation(s) included in expectation_suite. result_format settings filtered.
+[ 2024-06-25 00:33:17,014 ] 112 py.warnings - WARNING - C:\Users\Tavishi\Desktop\New folder (9)\mlops-project\venv\Lib\site-packages\great_expectations\data_context\data_context\abstract_data_context.py:441: DeprecationWarning: save_expectation_suite is deprecated as of v0.15.48 and will be removed in v0.18. Please use update_expectation_suite or add_or_update_expectation_suite instead.
+  warnings.warn(
+
+[ 2024-06-25 00:33:17,507 ] 538 great_expectations.data_asset.data_asset - INFO - 	1 expectation(s) included in expectation_suite. result_format settings filtered.
+[ 2024-06-25 00:33:18,021 ] 1461 great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
+[ 2024-06-25 00:33:18,235 ] 144 root - INFO - expectation suite ended with status True
+[ 2024-06-25 00:33:19,398 ] 71 root - INFO - Completed reading the raw data for further preprocessing
+[ 2024-06-25 00:33:19,399 ] 73 root - INFO - Starting Preprocessing
+[ 2024-06-25 00:33:23,920 ] 229 root - INFO - Saved preprocessing object
+[ 2024-06-25 00:33:23,920 ] 231 root - INFO - Resampling imbalanced data
+[ 2024-06-25 00:33:24,400 ] 235 root - INFO - Saving train and test data
+[ 2024-06-25 00:33:24,458 ] 31 root - INFO - Hypothesis 0: float64, float64 
+[ 2024-06-25 00:33:24,514 ] 31 root - INFO - Hypothesis 1: float64, float64 
+[ 2024-06-25 00:33:24,566 ] 31 root - INFO - Hypothesis 2: float64, float64 
+[ 2024-06-25 00:33:24,621 ] 31 root - INFO - Hypothesis 3: float64, float64 
+[ 2024-06-25 00:33:24,670 ] 31 root - INFO - Hypothesis 4: float64, float64 
+[ 2024-06-25 00:33:24,731 ] 31 root - INFO - Hypothesis 5: float64, float64 
+[ 2024-06-25 00:33:24,788 ] 31 root - INFO - Hypothesis 6: float64, float64 
+[ 2024-06-25 00:33:24,851 ] 31 root - INFO - Hypothesis 7: float64, float64 
+[ 2024-06-25 00:33:24,910 ] 31 root - INFO - Hypothesis 8: float64, float64 
+[ 2024-06-25 00:33:24,950 ] 31 root - INFO - Hypothesis 9: float64, float64 
+[ 2024-06-25 00:33:24,992 ] 31 root - INFO - Hypothesis 10: float64, float64 
+[ 2024-06-25 00:33:25,054 ] 31 root - INFO - Hypothesis 11: float64, float64 
+[ 2024-06-25 00:33:25,105 ] 31 root - INFO - Hypothesis 12: float64, float64 
+[ 2024-06-25 00:33:25,171 ] 31 root - INFO - Hypothesis 13: float64, float64 
+[ 2024-06-25 00:33:25,219 ] 31 root - INFO - Hypothesis 14: float64, float64 
+[ 2024-06-25 00:33:25,241 ] 31 root - INFO - Hypothesis 15: float64, float64 
+[ 2024-06-25 00:33:25,276 ] 31 root - INFO - Hypothesis 16: float64, float64 
+[ 2024-06-25 00:33:25,306 ] 31 root - INFO - Hypothesis 17: float64, float64 
+[ 2024-06-25 00:33:25,334 ] 31 root - INFO - Hypothesis 18: float64, float64 
+[ 2024-06-25 00:33:25,365 ] 31 root - INFO - Hypothesis 19: float64, float64 
+[ 2024-06-25 00:33:25,394 ] 31 root - INFO - Hypothesis 20: float64, float64 
+[ 2024-06-25 00:33:25,420 ] 31 root - INFO - Hypothesis 21: float64, float64 
+[ 2024-06-25 00:33:25,448 ] 31 root - INFO - Hypothesis 22: float64, float64 
+[ 2024-06-25 00:33:25,467 ] 31 root - INFO - Hypothesis 23: float64, float64 
+[ 2024-06-25 00:33:25,495 ] 31 root - INFO - Hypothesis 24: float64, float64 
+[ 2024-06-25 00:33:25,517 ] 31 root - INFO - Hypothesis 25: float64, float64 
+[ 2024-06-25 00:33:25,546 ] 31 root - INFO - Hypothesis 26: float64, float64 
+[ 2024-06-25 00:33:25,571 ] 31 root - INFO - Hypothesis 27: float64, float64 
+[ 2024-06-25 00:33:25,602 ] 31 root - INFO - Hypothesis 28: float64, float64 
+[ 2024-06-25 00:33:25,631 ] 31 root - INFO - Hypothesis 29: float64, float64 
+[ 2024-06-25 00:33:25,648 ] 31 root - INFO - Hypothesis 30: float64, float64 
+[ 2024-06-25 00:33:25,680 ] 31 root - INFO - Hypothesis 31: float64, float64 
+[ 2024-06-25 00:33:25,704 ] 31 root - INFO - Hypothesis Default: int64, int64 
+[ 2024-06-25 00:33:29,334 ] 31 root - INFO - Hypothesis 0: float64, float64 
+[ 2024-06-25 00:33:29,337 ] 31 root - INFO - Hypothesis 1: float64, float64 
+[ 2024-06-25 00:33:29,339 ] 31 root - INFO - Hypothesis 2: float64, float64 
+[ 2024-06-25 00:33:29,342 ] 31 root - INFO - Hypothesis 3: float64, float64 
+[ 2024-06-25 00:33:29,344 ] 31 root - INFO - Hypothesis 4: float64, float64 
+[ 2024-06-25 00:33:29,347 ] 31 root - INFO - Hypothesis 5: float64, float64 
+[ 2024-06-25 00:33:29,350 ] 31 root - INFO - Hypothesis 6: float64, float64 
+[ 2024-06-25 00:33:29,353 ] 31 root - INFO - Hypothesis 7: float64, float64 
+[ 2024-06-25 00:33:29,355 ] 31 root - INFO - Hypothesis 8: float64, float64 
+[ 2024-06-25 00:33:29,359 ] 31 root - INFO - Hypothesis 9: float64, float64 
+[ 2024-06-25 00:33:29,361 ] 31 root - INFO - Hypothesis 10: float64, float64 
+[ 2024-06-25 00:33:29,365 ] 31 root - INFO - Hypothesis 11: float64, float64 
+[ 2024-06-25 00:33:29,368 ] 31 root - INFO - Hypothesis 12: float64, float64 
+[ 2024-06-25 00:33:29,372 ] 31 root - INFO - Hypothesis 13: float64, float64 
+[ 2024-06-25 00:33:29,375 ] 31 root - INFO - Hypothesis 14: float64, float64 
+[ 2024-06-25 00:33:29,378 ] 31 root - INFO - Hypothesis 15: float64, float64 
+[ 2024-06-25 00:33:29,381 ] 31 root - INFO - Hypothesis 16: float64, float64 
+[ 2024-06-25 00:33:29,384 ] 31 root - INFO - Hypothesis 17: float64, float64 
+[ 2024-06-25 00:33:29,388 ] 31 root - INFO - Hypothesis 18: float64, float64 
+[ 2024-06-25 00:33:29,390 ] 31 root - INFO - Hypothesis 19: float64, float64 
+[ 2024-06-25 00:33:29,392 ] 31 root - INFO - Hypothesis 20: float64, float64 
+[ 2024-06-25 00:33:29,397 ] 31 root - INFO - Hypothesis 21: float64, float64 
+[ 2024-06-25 00:33:29,402 ] 31 root - INFO - Hypothesis 22: float64, float64 
+[ 2024-06-25 00:33:29,407 ] 31 root - INFO - Hypothesis 23: float64, float64 
+[ 2024-06-25 00:33:29,410 ] 31 root - INFO - Hypothesis 24: float64, float64 
+[ 2024-06-25 00:33:29,414 ] 31 root - INFO - Hypothesis 25: float64, float64 
+[ 2024-06-25 00:33:29,418 ] 31 root - INFO - Hypothesis 26: float64, float64 
+[ 2024-06-25 00:33:29,423 ] 31 root - INFO - Hypothesis 27: float64, float64 
+[ 2024-06-25 00:33:29,427 ] 31 root - INFO - Hypothesis 28: float64, float64 
+[ 2024-06-25 00:33:29,430 ] 31 root - INFO - Hypothesis 29: float64, float64 
+[ 2024-06-25 00:33:29,432 ] 31 root - INFO - Hypothesis 30: float64, float64 
+[ 2024-06-25 00:33:29,435 ] 31 root - INFO - Hypothesis 31: float64, float64 
+[ 2024-06-25 00:33:29,438 ] 31 root - INFO - Hypothesis Default: float64, float64 
+[ 2024-06-25 00:33:36,479 ] 59 root - INFO - Starting Model Training

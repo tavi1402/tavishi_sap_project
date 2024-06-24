@@ -1,0 +1,46 @@
+{
+    "Client_Income_Type": {
+        "Commercial": 0,
+        "Govt Job": 1,
+        "Other": 2,
+        "Retired": 3,
+        "Service": 4
+    },
+    "Client_Education": {
+        "Graduation": 0,
+        "Graduation dropout": 1,
+        "Junior secondary": 2,
+        "Post Grad": 3,
+        "Secondary": 4
+    },
+    "Client_Marital_Status": {
+        "D": 0,
+        "M": 1,
+        "S": 2,
+        "W": 3
+    },
+    "Client_Housing_Type": {
+        "Family": 0,
+        "Home": 1,
+        "Municipal": 2,
+        "Office": 3,
+        "Rental": 4,
+        "Shared": 5
+    },
+    "Client_Occupation": {
+        "Healthcare": 0,
+        "Professional": 1,
+        "Service": 2,
+        "Skilled Labor": 3,
+        "Unknown": 4
+    },
+    "Type_Organization": {
+        "Business": 0,
+        "Institution": 1,
+        "Other": 2,
+        "Public Sector": 3,
+        "Trade": 4,
+        "Transport": 5,
+        "Unknown": 6
+    }
+}

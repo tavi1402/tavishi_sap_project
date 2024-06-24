@@ -1,0 +1,90 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: server
+  name: fastapi-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: fastapi-server
+  template:
+    metadata:
+      namespace: fastapi-server
+      labels:
+        name: fastapi-server
+    spec:
+      containers:
+        - name: fastapi-server
+          image: gcr.io/tavishi-gcp-docker/ml_pipeline:latest
+          imagePullPolicy: Always
+          command: 
+            - "bash"
+            - "-c"
+            - "python3 app.py"
+          ports:
+            - containerPort: 8000
+              name: rest
+          resources:
+            limits:
+              memory: "2Gi"
+              cpu: "1"
+            requests:
+              memory: "2Gi"
+              cpu: "1"
+      imagePullSecrets:
+        - name: azure-secret
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: fastapi-server
+  name: fastapi-server
+  
+spec:
+  selector:
+    name: fastapi-server
+  ports:
+    - port: 80
+      targetPort: rest
+  type: LoadBalancer
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  namespace: fastapi-server
+  name: fastapi-server-hpa
+  
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: fastapi-server
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: AverageValue
+          averageValue: "1Gi"
+
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: canary-deployment
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: fastapi-server

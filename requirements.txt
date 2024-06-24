@@ -1,0 +1,24 @@
+pandas
+numpy
+seaborn
+missingno
+scikit-learn
+category-encoders
+imbalanced-learn
+xgboost
+lightgbm
+Flask
+mlflow==2.13.2
+locust
+torch
+fastapi
+pydantic
+python-dotenv
+uvicorn
+prometheus_client
+great_expectations
+google-cloud-storage
+boto3
+loguru
+pymongo
+-e .

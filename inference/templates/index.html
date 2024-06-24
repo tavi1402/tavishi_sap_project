@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Default Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: calc(100% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #0caaaa;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: left;
+            margin-top: 35px;
+        }
+        button:hover {
+            background-color: #045c5c;
+        }
+        h2, h3 {
+            text-align: center;
+        }
+        h3 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Loan Default Prediction</h2>
+    <form action="/predict" method="post">
+        <label for="Client_Income">Client Income:</label><br>
+        <input type="number" id="Client_Income" name="Client_Income" ><br><br>
+
+        <label for="Car_Owned">Car Owned:</label><br>
+        <select id="Car_Owned" name="Car_Owned" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Active_Loan">Active Loan:</label><br>
+        <select id="Active_Loan" name="Active_Loan" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="House_Own">House Owned:</label><br>
+        <select id="House_Own" name="House_Own" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Credit_Amount">Credit Amount:</label><br>
+        <input type="number" id="Credit_Amount" name="Credit_Amount" ><br><br>
+
+        <label for="Loan_Annuity">Loan Annuity:</label><br>
+        <input type="number" id="Loan_Annuity" name="Loan_Annuity" ><br><br>
+
+        <label for="Client_Income_Type">Client Income Type:</label><br>
+        <select id="Client_Income_Type" name="Client_Income_Type" >
+            <option value="Commercial">Commercial</option>
+            <option value="Service">Service</option>
+            <option value="Govt Job">Govt Job</option>
+            <option value="Retired">Retired</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <label for="Client_Education">Client Education:</label><br>
+        <select id="Client_Education" name="Client_Education" >
+            <option value="Junior secondary">Junior Secondary</option>
+            <option value="Secondary">Secondary</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Graduation dropout">Graduation Dropout</option>
+            <option value="Post Grad">Post Grad</option>
+        </select><br><br>
+
+        <label for="Client_Marital_Status">Client Marital Status:</label><br>
+        <select id="Client_Marital_Status" name="Client_Marital_Status" >
+            <option value="M">Married</option>
+            <option value="W">Widowed</option>
+            <option value="S">Single</option>
+            <option value="D">Divorced</option>
+        </select><br><br>
+
+        <label for="Client_Gender">Client Gender:</label><br>
+        <select id="Client_Gender" name="Client_Gender" >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+
+        <label for="Loan_Contract_Type">Loan Contract Type:</label><br>
+        <select id="Loan_Contract_Type" name="Loan_Contract_Type" >
+            <option value="CL">CL</option>
+            <option value="RL">RL</option>
+        </select><br><br>
+
+        <label for="Client_Housing_Type">Client Housing Type:</label><br>
+        <select id="Client_Housing_Type" name="Client_Housing_Type" >
+            <option value="Home">Home</option>
+            <option value="Family">Family</option>
+            <option value="Municipal">Municipal</option>
+            <option value="Rental">Rental</option>
+            <option value="Office">Office</option>
+            <option value="Shared">Shared</option>
+        </select><br><br>
+
+        <label for="Population_Region_Relative">Population Region Relative:</label><br>
+        <input type="number" id="Population_Region_Relative" name="Population_Region_Relative" step="any" ><br><br>
+
+        <label for="Age_Days">Age in Days:</label><br>
+        <input type="number" id="Age_Days" name="Age_Days" ><br><br>
+
+        <label for="Employed_Days">Employed in Days:</label><br>
+        <input type="number" id="Employed_Days" name="Employed_Days" ><br><br>
+
+        <label for="Registration_Days">Registration in Days:</label><br>
+        <input type="number" id="Registration_Days" name="Registration_Days" ><br><br>
+
+        <label for="ID_Days">ID Days:</label><br>
+        <input type="number" id="ID_Days" name="ID_Days" ><br><br>
+
+        <label for="Homephone_Tag">Homephone Tag:</label><br>
+        <select id="Homephone_Tag" name="Homephone_Tag" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Workphone_Working">Workphone Working:</label><br>
+        <select id="Workphone_Working" name="Workphone_Working" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Client_Occupation">Client Occupation:</label><br>
+        <select id="Client_Occupation" name="Client_Occupation" >
+            <option value="Professional">Professional</option>
+            <option value="Skilled Labor">Skilled Labor</option>
+            <option value="Service">Service</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br>
+
+        <label for="Client_Family_Members">Client Family Members:</label><br>
+        <input type="number" id="Client_Family_Members" name="Client_Family_Members" ><br><br>
+
+        <label for="Cleint_City_Rating">Client City Rating:</label><br>
+        <input type="number" id="Cleint_City_Rating" name="Cleint_City_Rating" ><br><br>
+
+        <label for="Client_Permanent_Match_Tag">Client Permanent Match Tag:</label><br>
+        <select id="Client_Permanent_Match_Tag" name="Client_Permanent_Match_Tag" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Client_Contact_Work_Tag">Client Contact Work Tag:</label><br>
+        <select id="Client_Contact_Work_Tag" name="Client_Contact_Work_Tag">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Type_Organization">Type Organization:</label><br>
+        <select id="Type_Organization" name="Type_Organization">
+            <option value="Public Sector">Public Sector</option>
+            <option value="Business">Business</option>
+            <option value="Transport">Transport</option>
+            <option value="Trade">Trade</option>
+            <option value="Institution">Institution</option>
+            <option value="Other">Other</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br>
+
+        <label for="Score_Source_2">Score Source 2:</label><br>
+        <input type="number" id="Score_Source_2" name="Score_Source_2" step="any"><br><br>
+
+        <label for="Score_Source_3">Score Source 3:</label><br>
+        <input type="number" id="Score_Source_3" name="Score_Source_3" step="any"><br><br>
+
+        <label for="Phone_Change">Phone Change:</label><br>
+        <input type="number" id="Phone_Change" name="Phone_Change"><br><br>
+
+        <label for="Credit_Bureau">Credit Bureau:</label><br>
+        <input type="number" id="Credit_Bureau" name="Credit_Bureau"><br><br>
+
+        <button type="submit">Predict Default</button>
+    </form>
+
+    {% if results %}
+        <h3>{{ results }}</h3>
+    {% endif %}
+    
+</body>
+</html>
+
+
+
+
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+ 
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Default Prediction</title>
+</head>
+<body>
+    <h2>Loan Default Prediction</h2>
+    <form action="/predict" method="post">
+        <label for="Client_Income">Client Income:</label><br>
+        <input type="number" id="Client_Income" name="Client_Income" ><br><br>
+
+        <label for="Car_Owned">Car Owned:</label><br>
+        <select id="Car_Owned" name="Car_Owned" >
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select><br><br>
+
+        <label for="Active_Loan">Active Loan:</label><br>
+        <select id="Active_Loan" name="Active_Loan" >
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select><br><br>
+
+        <label for="House_Own">House Owned:</label><br>
+        <select id="House_Own" name="House_Own" >
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select><br><br>
+
+        <label for="Credit_Amount">Credit Amount:</label><br>
+        <input type="number" id="Credit_Amount" name="Credit_Amount" ><br><br>
+
+        <label for="Loan_Annuity">Loan Annuity:</label><br>
+        <input type="number" id="Loan_Annuity" name="Loan_Annuity" ><br><br>
+
+        <label for="Client_Income_Type">Client Income Type:</label><br>
+        <select id="Client_Income_Type" name="Client_Income_Type" >
+            <option value="Commercial">Commercial</option>
+            <option value="Service">Service</option>
+            <option value="Govt Job">Govt Job</option>
+            <option value="Other">Other</option>
+            <option value="Retired">Retired</option>
+        </select><br><br>
+
+        <label for="Client_Education">Client Education:</label><br>
+        <select id="Client_Education" name="Client_Education" >
+            <option value="Secondary">Secondary</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Graduation dropout">Graduation Dropout</option>
+            <option value="Junior secondary">Junior Secondary</option>
+            <option value="Post Grad">Post Grad</option>
+        </select><br><br>
+
+        <label for="Client_Marital_Status">Client Marital Status:</label><br>
+        <select id="Client_Marital_Status" name="Client_Marital_Status" >
+            <option value="M">Married</option>
+            <option value="W">Widowed</option>
+            <option value="S">Single</option>
+            <option value="D">Divorced</option>
+        </select><br><br>
+
+        <label for="Client_Gender">Client Gender:</label><br>
+        <select id="Client_Gender" name="Client_Gender" >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+
+        <label for="Loan_Contract_Type">Loan Contract Type:</label><br>
+        <select id="Loan_Contract_Type" name="Loan_Contract_Type" >
+            <option value="CL">CL</option>
+            <option value="RL">RL</option>
+        </select><br><br>
+
+        <label for="Client_Housing_Type">Client Housing Type:</label><br>
+        <select id="Client_Housing_Type" name="Client_Housing_Type" >
+            <option value="Home">Home</option>
+            <option value="Family">Family</option>
+            <option value="Municipal">Municipal</option>
+            <option value="Rental">Rental</option>
+            <option value="Office">Office</option>
+            <option value="Shared">Shared</option>
+        </select><br><br>
+
+        <label for="Population_Region_Relative">Population Region Relative:</label><br>
+        <input type="number" id="Population_Region_Relative" name="Population_Region_Relative" step="any" ><br><br>
+
+        <label for="Age_Days">Age in Days:</label><br>
+        <input type="number" id="Age_Days" name="Age_Days" ><br><br>
+
+        <label for="Employed_Days">Employed in Days:</label><br>
+        <input type="number" id="Employed_Days" name="Employed_Days" ><br><br>
+
+        <label for="Registration_Days">Registration in Days:</label><br>
+        <input type="number" id="Registration_Days" name="Registration_Days" ><br><br>
+
+        <label for="ID_Days">ID Days:</label><br>
+        <input type="number" id="ID_Days" name="ID_Days" ><br><br>
+
+        <label for="Homephone_Tag">Homephone Tag:</label><br>
+        <select id="Homephone_Tag" name="Homephone_Tag" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Workphone_Working">Workphone Working:</label><br>
+        <select id="Workphone_Working" name="Workphone_Working" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Client_Occupation">Client Occupation:</label><br>
+        <select id="Client_Occupation" name="Client_Occupation" >
+            <option value="Professional">Professional</option>
+            <option value="Unknown">Unknown</option>
+            <option value="Skilled Labor">Skilled Labor</option>
+            <option value="Service">Service</option>
+            <option value="Healthcare">Healthcare</option>
+        </select><br><br>
+
+        <label for="Cleint_City_Rating">Client City Rating:</label><br>
+        <input type="number" id="Cleint_City_Rating" name="Cleint_City_Rating" ><br><br>
+
+        <label for="Client_Permanent_Match_Tag">Client Permanent Match Tag:</label><br>
+        <select id="Client_Permanent_Match_Tag" name="Client_Permanent_Match_Tag" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Client_Contact_Work_Tag">Client Contact Work Tag:</label><br>
+        <select id="Client_Contact_Work_Tag" name="Client_Contact_Work_Tag" >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="Type_Organization">Type Organization:</label><br>
+        <select id="Type_Organization" name="Type_Organization" >
+            <option value="Public Sector">Public Sector</option>
+            <option value="Business">Business</option>
+            <option value="Other">Other</option>
+            <option value="Unknown">Unknown</option>
+            <option value="Transport">Transport</option>
+            <option value="Trade">Trade</option>
+            <option value="Institution">Institution</option>
+        </select><br><br>
+
+        <label for="Score_Source_2">Score Source 2:</label><br>
+        <input type="number" id="Score_Source_2" name="Score_Source_2" step="any" ><br><br>
+
+        <label for="Score_Source_3">Score Source 3:</label><br>
+        <input type="number" id="Score_Source_3" name="Score_Source_3" step="any" ><br><br>
+
+        <label for="Phone_Change">Phone Change:</label><br>
+        <input type="number" id="Phone_Change" name="Phone_Change" ><br><br>
+
+        <button type="submit">Predict Default</button>
+    </form>
+    
+    {% if results %}
+    <h3>Prediction Result:</h3>
+    <p>{{ results }}</p>
+    {% endif %}
+</body>
+</html> -->
+
+
+
+
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Default Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Loan Default Predictor</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="Client_Income">Client Income</label>
+                <input type="number" step="any" class="form-control" id="Client_Income" name="Client_Income" >
+            </div>
+            <div class="form-group">
+                <label for="Car_Owned">Car Owned</label>
+                <input type="text" class="form-control" id="Car_Owned" name="Car_Owned" >
+            </div>
+            <div class="form-group">
+                <label for="Active_Loan">Active Loan</label>
+                <input type="text" class="form-control" id="Active_Loan" name="Active_Loan" >
+            </div>
+            <div class="form-group">
+                <label for="Credit_Amount">Credit Amount</label>
+                <input type="number" step="any" class="form-control" id="Credit_Amount" name="Credit_Amount" >
+            </div>
+            <div class="form-group">
+                <label for="Loan_Annuity">Loan Annuity</label>
+                <input type="number" step="any" class="form-control" id="Loan_Annuity" name="Loan_Annuity" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Income_Type">Client Income Type</label>
+                <input type="text" class="form-control" id="Client_Income_Type" name="Client_Income_Type" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Education">Client Education</label>
+                <input type="text" class="form-control" id="Client_Education" name="Client_Education" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Marital_Status">Client Marital Status</label>
+                <input type="text" class="form-control" id="Client_Marital_Status" name="Client_Marital_Status" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Gender">Client Gender</label>
+                <input type="text" class="form-control" id="Client_Gender" name="Client_Gender" >
+            </div>
+            <div class="form-group">
+                <label for="Loan_Contract_Type">Loan Contract Type</label>
+                <input type="text" class="form-control" id="Loan_Contract_Type" name="Loan_Contract_Type" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Housing_Type">Client Housing Type</label>
+                <input type="text" class="form-control" id="Client_Housing_Type" name="Client_Housing_Type" >
+            </div>
+            <div class="form-group">
+                <label for="Population_Region_Relative">Population Region Relative</label>
+                <input type="number" step="any" class="form-control" id="Population_Region_Relative" name="Population_Region_Relative" >
+            </div>
+            <div class="form-group">
+                <label for="Age_Days">Age Days</label>
+                <input type="number" step="any" class="form-control" id="Age_Days" name="Age_Days" >
+            </div>
+            <div class="form-group">
+                <label for="Employed_Days">Employed Days</label>
+                <input type="number" step="any" class="form-control" id="Employed_Days" name="Employed_Days" >
+            </div>
+            <div class="form-group">
+                <label for="Registration_Days">Registration Days</label>
+                <input type="number" step="any" class="form-control" id="Registration_Days" name="Registration_Days" >
+            </div>
+            <div class="form-group">
+                <label for="ID_Days">ID Days</label>
+                <input type="number" step="any" class="form-control" id="ID_Days" name="ID_Days" >
+            </div>
+            <div class="form-group">
+                <label for="Homephone_Tag">Homephone Tag</label>
+                <input type="text" class="form-control" id="Homephone_Tag" name="Homephone_Tag" >
+            </div>
+            <div class="form-group">
+                <label for="Workphone_Working">Workphone Working</label>
+                <input type="text" class="form-control" id="Workphone_Working" name="Workphone_Working" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Occupation">Client Occupation</label>
+                <input type="text" class="form-control" id="Client_Occupation" name="Client_Occupation" >
+            </div>
+            <div class="form-group">
+                <label for="Cleint_City_Rating">Client City Rating</label>
+                <input type="number" step="any" class="form-control" id="Cleint_City_Rating" name="Cleint_City_Rating" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Permanent_Match_Tag">Client Permanent Match Tag</label>
+                <input type="text" class="form-control" id="Client_Permanent_Match_Tag" name="Client_Permanent_Match_Tag" >
+            </div>
+            <div class="form-group">
+                <label for="Client_Contact_Work_Tag">Client Contact Work Tag</label>
+                <input type="text" class="form-control" id="Client_Contact_Work_Tag" name="Client_Contact_Work_Tag" >
+            </div>
+            <div class="form-group">
+                <label for="Type_Organization">Type Organization</label>
+                <input type="text" class="form-control" id="Type_Organization" name="Type_Organization" >
+            </div>
+            <div class="form-group">
+                <label for="Score_Source_2">Score Source 2</label>
+                <input type="number" step="any" class="form-control" id="Score_Source_2" name="Score_Source_2" >
+            </div>
+            <div class="form-group">
+                <label for="Score_Source_3">Score Source 3</label>
+                <input type="number" step="any" class="form-control" id="Score_Source_3" name="Score_Source_3" >
+            </div>
+            <div class="form-group">
+                <label for="Phone_Change">Phone Change</label>
+                <input type="number" step="any" class="form-control" id="Phone_Change" name="Phone_Change" >
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if results %}
+            <h2 class="mt-5">Prediction Result:</h2>
+            <p>{{ results }}</p>
+        {% endif %}
+    </div>
+</body>
+</html> -->
