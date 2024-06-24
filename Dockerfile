@@ -13,10 +13,12 @@ ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 ENV no_proxy=*
 ENV GCS_PATH=tavishi_sap_project
 
+RUN pip3 install --upgrade apache-airflow
 ENV TOKENIZERS_PARALLELISM=False
 RUN python3 -m airflow db init
 RUN python3 -m airflow users create -e tavish@gmail.com -f tavish -l tavish -p tavish@iqfm -r Admin -u tavish
 RUN chmod 777 start_airflow.sh
+
 RUN apt install azure-cli -y
 ENTRYPOINT [ "/bin/sh" ]
 CMD [ "./start_airflow.sh" ]
