@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM python:3.11
 RUN mkdir /app
 COPY . /app
 WORKDIR /app
