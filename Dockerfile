@@ -8,7 +8,7 @@ ENV GOOGLE_APPLICATION_CREDENTIALS=service-account.json
 ENV AIRFLOW_HOME=/app/airflow
 ENV AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT=1000
 ENV AIRFLOW__CORE__ENABLE_XCOM_PICKLING=True
-ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
+# ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 ENV no_proxy=*
 ENV GCS_PATH=tavishi_sap_project
@@ -16,7 +16,7 @@ ENV GCS_PATH=tavishi_sap_project
 RUN pip3 install --upgrade apache-airflow
 ENV TOKENIZERS_PARALLELISM=False
 RUN python3 -m airflow db init
-RUN python3 -m airflow users create -e tavish@gmail.com -f tavish -l tavish -p tavish@iqfm -r Admin -u tavish
+RUN python3 -m airflow users create -e tavishi@gmail.com -f tavishi -l tavishi -p tavishi@iqfm -r Admin -u tavishi
 RUN chmod 777 start_airflow.sh
 
 RUN apt install azure-cli -y
