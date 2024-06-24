@@ -21,4 +21,5 @@ google-cloud-storage
 boto3
 loguru
 pymongo
+apache-airflow
 -e .
