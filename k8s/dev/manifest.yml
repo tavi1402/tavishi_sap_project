@@ -1,7 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: server
+  namespace: dev
   name: ml-pipeline
 spec:
   replicas: 1
@@ -10,7 +15,6 @@ spec:
       name: ml-pipeline
   template:
     metadata:
-      namespace: ml-pipeline
       labels:
         name: ml-pipeline
     spec:
@@ -21,10 +25,10 @@ spec:
           command: 
             - "bash"
             - "-c"
-            - "uvicorn appfast:app --host 0.0.0.0 --port 8000 --workers 2"
+            - "flask run --host=0.0.0.0 --port=8000"
           ports:
             - containerPort: 8000
-              name: rest
+              name: http
           resources:
             limits:
               memory: "2Gi"
@@ -35,17 +39,15 @@ spec:
       imagePullSecrets:
         - name: gcp-secret
 ---
-#service.yml
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: ml-pipeline
+  namespace: dev
   name: ml-pipeline
-  
 spec:
   selector:
-    name: ml-pipeline
+    app: ml-pipeline
   ports:
     - port: 80
-      targetPort: rest
+      targetPort: http
   type: LoadBalancer

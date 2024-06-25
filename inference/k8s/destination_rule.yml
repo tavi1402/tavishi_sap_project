@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  namespace: server
+  name: flask-inference-server
+spec:
+  host: flask-inference-server
+  subsets:
+  - name: stable
+    labels:
+      version: stable
+  - name: canary
+    labels:
+      version: canary
+  - name: blue
+    labels:
+      version: blue
+  - name: green
+    labels:
+      version: green
+  - name: shadow
+    labels:
+      version: shadow

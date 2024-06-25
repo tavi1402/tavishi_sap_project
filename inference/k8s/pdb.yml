@@ -1,0 +1,15 @@
+# Pod Disruption Budget (PDB): To ensure availability during disruptions.
+#High Availability: Ensures a minimum number of pods remain available during maintenance or updates.
+#Resilience: Improves application resilience during disruptions.
+
+
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  namespace: server
+  name: flask-inference-server-pdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: flask-inference-server

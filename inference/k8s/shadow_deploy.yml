@@ -2,29 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: server
-  name: ml-pipeline
+  name: flask-inference-server-shadow
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: ml-pipeline
+      app: flask-inference-server
+      version: shadow
   template:
     metadata:
-      namespace: ml-pipeline
       labels:
-        name: ml-pipeline
+        app: flask-inference-server
+        version: shadow
     spec:
       containers:
-        - name: ml-pipeline
-          image: "tavishi1402/sap_project:latest"
+        - name: flask-inference-server
+          image: gcr.io/tavishi-gcp-docker/ml_pipeline:shadow
           imagePullPolicy: Always
           command: 
             - "bash"
             - "-c"
-            - "uvicorn appfast:app --host 0.0.0.0 --port 8000 --workers 2"
+            - "flask run --host=0.0.0.0 --port=8000"
           ports:
             - containerPort: 8000
-              name: rest
+              name: http
           resources:
             limits:
               memory: "2Gi"
@@ -34,18 +35,3 @@ spec:
               cpu: "1"
       imagePullSecrets:
         - name: gcp-secret
----
-#service.yml
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: ml-pipeline
-  name: ml-pipeline
-  
-spec:
-  selector:
-    name: ml-pipeline
-  ports:
-    - port: 80
-      targetPort: rest
-  type: LoadBalancer

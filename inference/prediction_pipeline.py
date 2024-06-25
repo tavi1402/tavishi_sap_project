@@ -7,15 +7,19 @@ import json
 from src.exception import CustomException
 from src.utils import load_object
 import functools
+import os 
+
 
 class PredictPipeline:
     def __init__(self):
         pass
 
-    @functools.cache()
+    @functools.lru_cache()
     def load_model(self):
-        model_path = "models/ml_model/final-model.pkl"
-        preprocessor_path = "models/preprocessor/preprocessor.pkl"
+        model_path = "artifacts/model.pkl"
+        preprocessor_path = "artifacts/preprocessor.pkl"
+        # model_path = "models/ml_model/final-model.pkl"
+        # preprocessor_path = "models/preprocessor/preprocessor.pkl"
         model = load_object(file_path=model_path)
         preprocessor = load_object(file_path=preprocessor_path)
         return model,preprocessor

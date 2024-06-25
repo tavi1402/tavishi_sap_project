@@ -1,0 +1,28 @@
+#Istio for Traffic Management
+
+#Advanced Traffic Control: Istio allows advanced traffic management, including routing, mirroring, and subset definitions.
+#Canary and Shadow Deployments: Enables canary deployments and shadow traffic mirroring for testing.
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: server
+  name: flask-inference-server
+spec:
+  hosts:
+  - "flask-inference-server.server.svc.cluster.local"
+  http:
+  - route:
+    - destination:
+        host: flask-inference-server
+        subset: stable
+      weight: 90
+    - destination:
+        host: flask-inference-server
+        subset: canary
+      weight: 10
+  - mirror:
+      host: flask-inference-server
+      subset: shadow
+    mirrorPercentage:
+      value: 100.0

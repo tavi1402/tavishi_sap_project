@@ -1,0 +1,30 @@
+# 5. Horizontal Pod Autoscaler (HPA)
+
+#Auto-Scaling: Automatically scales the number of pods based on CPU and memory usage.
+#Resource Efficiency: Ensures efficient use of resources by scaling up/down based on demand.
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  namespace: server
+  name: flask-inference-server-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: flask-inference-server-stable
+  minReplicas: 1
+  maxReplicas: 4
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: AverageValue
+          averageValue: "1Gi"
