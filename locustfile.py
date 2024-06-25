@@ -42,8 +42,8 @@ class UserBehavior(TaskSet):
 class WebsiteUser(HttpUser):
     tasks = [UserBehavior]
     wait_time = between(1, 5)  # Simulate user waiting between 1 to 5 seconds between tasks
-    host = "http://127.0.0.1:5001"  # Specify the base host to match Flask app
+    host = "http://127.0.0.1:5000"  # Specify the base host to match Flask app
 
-# if __name__ == "__main__":
-#     import os
-#     os.system("locust -f locustfile.py")  # Ensure to name this script locustfile.py for ease of use
+if __name__ == "__main__":
+    import os
+    os.system("locust -f locustfile.py")  # Ensure to name this script locustfile.py for ease of use

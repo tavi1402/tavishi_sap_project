@@ -16,10 +16,10 @@ class PredictPipeline:
 
     @functools.lru_cache()
     def load_model(self):
-        model_path = "artifacts/model.pkl"
-        preprocessor_path = "artifacts/preprocessor.pkl"
-        # model_path = "models/ml_model/final-model.pkl"
-        # preprocessor_path = "models/preprocessor/preprocessor.pkl"
+        # model_path = "artifacts/model.pkl"
+        # preprocessor_path = "artifacts/preprocessor.pkl"
+        model_path = "models/ml_model/final-model.pkl"
+        preprocessor_path = "models/preprocessor/preprocessor.pkl"
         model = load_object(file_path=model_path)
         preprocessor = load_object(file_path=preprocessor_path)
         return model,preprocessor
@@ -27,7 +27,7 @@ class PredictPipeline:
     def predict(self, features):
         try:
             model,preprocessor=self.load_model()
-            with open("artifacts/label_encodings.json", "r") as f:
+            with open("label_encodings.json", "r") as f:
                 label_encodings = json.load(f)
 
             features_mapped = {

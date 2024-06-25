@@ -10,13 +10,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-
+from utils import get_latest_model_version_from_gcs
+from utils import download_model_from_gcs
 client=pymongo.MongoClient(os.getenv("MONGODB_CREDENTIALS"))
 
 import sentry_sdk
 
 sentry_sdk.init(
-    dsn="https://624dcc8ee1e847ac87e6cc9fdec3c7e8@o4505453528940544.ingest.us.sentry.io/4505453531299840",
+    dsn="https://6d003754d7d2421f48a6335998627da7@o4507494657359872.ingest.de.sentry.io/4507494662144080",
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
@@ -28,6 +29,15 @@ sentry_sdk.init(
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
+def run_model():
+    bucket_name = os.getenv("GCP_BUCKET")
+    model_version = get_latest_model_version_from_gcs(bucket_name=bucket_name, model_name="model", type_="ml_model")
+    preprocessor_version = get_latest_model_version_from_gcs(bucket_name=bucket_name, model_name="preprocessor", type_="preprocessor")
+    os.makedirs("models/preprocessor",exist_ok=True)
+    os.makedirs("models/ml_model",exist_ok=True)
+    download_model_from_gcs(bucket_name=bucket_name, gcs_path=f"models/ml_model/model_v{model_version}.pkl",local_model_path="models/preprocessor/final-model.pkl")
+    download_model_from_gcs(bucket_name=bucket_name, gcs_path=f"models/preprocessor/preprocessor_v{preprocessor_version}.pkl",local_model_path="models/ml_model/final-model.pkl")
+# run_model()
 @app.route('/')
 def home():
     return render_template('index.html')

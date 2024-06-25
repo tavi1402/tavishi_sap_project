@@ -11,7 +11,7 @@ ENV AIRFLOW__CORE__ENABLE_XCOM_PICKLING=True
 # ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 ENV no_proxy=*
-ENV GCS_PATH=tavishi_sap_project
+ENV GCS_BUCKET=tavishi_sap_project
 
 RUN pip3 install --upgrade apache-airflow
 ENV TOKENIZERS_PARALLELISM=False

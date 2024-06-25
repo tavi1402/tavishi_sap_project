@@ -1,3 +1,3 @@
 nohup airflow scheduler &
-python3 -m airflow db init
+python -m airflow db init
 airflow webserver

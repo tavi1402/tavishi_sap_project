@@ -1,0 +1,1 @@
+# todo write a script which will retrigger the cicd of the infering engine to deploy the latest mmodel
