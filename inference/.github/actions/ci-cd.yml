@@ -65,7 +65,5 @@ jobs:
 
       - name: Deploy
         run: |
-          sed 's|hyd\.ocir\.io\.docker|hyd.ocir.io/axbnvq6zalfd/fastapi_server:${{ github.sha }} |g' k8s/deploy.yml > k8s/deploy-temp.yml
-          rm -rf k8s/fastapi_server.yml
           mv k8s/fastapi_server-temp.yml k8s/fastapi_server.yml
           kubectl apply -f k8s -n server

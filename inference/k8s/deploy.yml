@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: server
-  name: fastapi-server
+  name: flask-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: fastapi-server
+      name: flask-server
   template:
     metadata:
-      namespace: fastapi-server
+      namespace: flask-server
       labels:
-        name: fastapi-server
+        name: flask-server
     spec:
       containers:
-        - name: fastapi-server
+        - name: flask-server
           image: gcr.io/tavishi-gcp-docker/ml_pipeline:latest
           imagePullPolicy: Always
           command: 
@@ -39,12 +39,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: fastapi-server
-  name: fastapi-server
+  namespace: flask-server
+  name: flask-server
   
 spec:
   selector:
-    name: fastapi-server
+    name: flask-server
   ports:
     - port: 80
       targetPort: rest
@@ -54,14 +54,14 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  namespace: fastapi-server
-  name: fastapi-server-hpa
+  namespace: flask-server
+  name: flask-server-hpa
   
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: fastapi-server
+    name: flask-server
   minReplicas: 1
   maxReplicas: 2
   metrics:
@@ -87,4 +87,4 @@ spec:
   minAvailable: 1
   selector:
     matchLabels:
-      app: fastapi-server
+      app: flask-server
