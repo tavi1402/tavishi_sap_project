@@ -1,50 +1,52 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: server
-  name: ml-pipeline
+  namespace: ml-pipeline
+  name: server-airflow
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: ml-pipeline
+      name: server-airflow
   template:
     metadata:
       namespace: ml-pipeline
       labels:
-        name: ml-pipeline
+        name: server-airflow
     spec:
       containers:
-        - name: ml-pipeline
-          image: "tavishi1402/sap_project:latest"
+        - name: server-airflow
+          image: rohan9886600475/abc:latest
           imagePullPolicy: Always
-          command: 
-            - "bash"
-            - "-c"
-            - "uvicorn appfast:app --host 0.0.0.0 --port 8000 --workers 2"
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
               name: rest
           resources:
             limits:
-              memory: "2Gi"
-              cpu: "1"
+              memory: "4Gi"
+              cpu: "2"
             requests:
-              memory: "2Gi"
-              cpu: "1"
-      imagePullSecrets:
-        - name: gcp-secret
+              memory: "4Gi"
+              cpu: "2"
+           
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+
 ---
-#service.yml
+
 apiVersion: v1
 kind: Service
 metadata:
   namespace: ml-pipeline
-  name: ml-pipeline
-  
+  name: server-airflow
 spec:
   selector:
-    name: ml-pipeline
+    name: server-airflow
   ports:
     - port: 80
       targetPort: rest

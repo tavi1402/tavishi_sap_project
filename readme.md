@@ -1,16 +1,9 @@
-# This architecture provides a robust and flexible deployment framework for  Flask application, leveraging Kubernetes for orchestration, and Istio for advanced traffic management. It allows you to perform canary, blue-green, and shadow deployments, ensuring high availability and resilience of application in production.
+#This architecture provides a robust and flexible deployment framework for  Flask application, leveraging Kubernetes for orchestration, and Istio for advanced traffic management. It allows you to perform canary, blue-green, and shadow deployments, ensuring high availability and resilience of application in production.
 
-## The files under inference/k8s/ define the various deployment strategies (stable, canary, blue-green, shadow) and the supporting configurations (service, HPA, PDB, Istio configurations) for your inference-related components.
-## The files under k8s/environments/ define the specific configurations for different environments (development, staging, production).
+The files under inference/k8s/ define the various deployment strategies (stable, canary, blue-green, shadow) and the supporting configurations (service, HPA, PDB, Istio configurations) for your inference-related components.
+The files under k8s/environments/ define the specific configurations for different environments (development, staging, production).
 
-## When we  deploy to a specific environment, we applies both the inference-related configurations and the environment-specific configurations
-
-Files and Their Purposes:
-
-
-
-
-
+When we  deploy to a specific environment, we applies both the inference-related configurations and the environment-specific configurations
 
 # Deployments
 Significance:
