@@ -33,7 +33,7 @@ spec:
               memory: "2Gi"
               cpu: "1"
       imagePullSecrets:
-        - name: azure-secret
+        - name: gcp-secret
 ---
 
 apiVersion: v1
