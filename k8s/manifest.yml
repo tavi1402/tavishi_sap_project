@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: server-airflow
-          image: rohan9886600475/abc:latest
+          image: tavishi8178502223/abc:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
