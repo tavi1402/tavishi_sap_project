@@ -21,7 +21,7 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: tavishi1402
-        password: dckr_pat_ilZFxDHe9xxp_luHnAgvI5HJU-0
+        password: dckr_pat_eRvjeIa_sPytCNUJ-AZTE2_CtzY
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
